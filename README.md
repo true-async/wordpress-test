@@ -52,6 +52,17 @@ HttpServer::onRequest(static function (Request $request, Response $response) {
 
 Multiple requests are handled concurrently in the same PHP process using fiber-based coroutines.
 
+### Global Isolation
+
+This works thanks to **global isolation** in TrueAsync PHP:
+
+- Each coroutine has its own isolated `$GLOBALS`
+- When NGINX Unit starts a request coroutine, it sets unique `$_GET`, `$_POST`, `$_SERVER`, `$_COOKIE` superglobals
+- Superglobals are bound to the request scope - all child coroutines within that request inherit them
+- Different requests never conflict because their superglobals are isolated from each other
+
+This allows WordPress to handle multiple requests simultaneously in one process without data corruption or race conditions.
+
 ## Configuration
 
 Default credentials:
