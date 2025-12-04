@@ -1,0 +1,17 @@
+{
+  "applications": {
+    "wordpress": {
+      "type": "php",
+      "async": true,
+      "processes": 2,
+      "entrypoint": "/app/www/entrypoint.php",
+      "working_directory": "/app/www",
+      "root": "/app/www"
+    }
+  },
+  "listeners": {
+    "0.0.0.0:8080": {
+      "pass": "applications/wordpress"
+    }
+  }
+}

@@ -1,0 +1,139 @@
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="run" transaction_id="11" status="break" reason="ok"><xdebug:message filename="file:///app/www/entrypoint.php" lineno="48"></xdebug:message></response>
+
+[140653123276224] Log opened at 2025-12-03 08:42:06.935805
+[140653123276224] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140653123276224'
+[140653123276224] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140653123276224] [Step Debug] INFO: Connected to debugging client: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140653123276224] [Step Debug] -> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" fileuri="file:///app/www/entrypoint.php" language="PHP" xdebug:language_version="8.6.0-dev" protocol_version="1.0" appid="140653123276224" xdebug:ctrl_socket="xdebug-ctrl.140653123276224"><engine version="3.5.0alpha4-dev"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[https://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2025 by Derick Rethans]]></copyright></init>
+
+[140653123276224] [Step Debug] <- feature_set -i 1 -n resolved_breakpoints -v 1
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="1" feature="resolved_breakpoints" success="1"></response>
+
+[140653123276224] [Step Debug] <- feature_set -i 2 -n notify_ok -v 1
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="2" feature="notify_ok" success="1"></response>
+
+[140653123276224] [Step Debug] <- feature_set -i 3 -n extended_properties -v 1
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="3" feature="extended_properties" success="1"></response>
+
+[140653123276224] [Step Debug] <- feature_set -i 4 -n breakpoint_include_return_value -v 1
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="4" feature="breakpoint_include_return_value" success="1"></response>
+
+[140653123276224] [Step Debug] <- feature_get -i 5 -n virtual_exception_value
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_get" transaction_id="5" feature_name="virtual_exception_value" supported="1"><![CDATA[0]]></response>
+
+[140653123276224] [Step Debug] <- feature_set -i 6 -n virtual_exception_value -v 1
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="6" feature="virtual_exception_value" success="1"></response>
+
+[140653123276224] [Step Debug] <- feature_set -i 7 -n max_children -v 100
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="7" feature="max_children" success="1"></response>
+
+[140653123276224] [Step Debug] <- breakpoint_set -i 8 -t line -f file:///app/www/entrypoint.php -n 47
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="8" id="690560001" resolved="unresolved"></response>
+
+[140653123276224] [Step Debug] <- breakpoint_set -i 9 -t line -f file:///app/www/entrypoint.php -n 48
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="9" id="690560002" resolved="unresolved"></response>
+
+[140653123276224] [Step Debug] <- breakpoint_set -i 10 -t line -f file:///app/www/entrypoint.php -n 49
+[140653123276224] [Step Debug] -> <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="https://xdebug.org/dbgp/xdebug" command="breakpoint_set" transaction_id="10" id="690560003" resolved="unresolved"></response>
+
+[140653123276224] [Step Debug] <- run -i 11
+[140581622611392] Log opened at 2025-12-04 17:06:08.767210
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:08.779958
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:12.689638
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:13.365664
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:13.381128
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:13.412322
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:13.436781
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:13.452528
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:14.740588
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:21.516577
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:21.535496
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:21.563010
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:21.584772
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:21.589006
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:22.794242
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:39.092946
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:39.113339
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:39.152436
+[140581622611392] Log opened at 2025-12-04 17:06:39.152449
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Config] WARN: Can't bind control socket
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
+[140581622611392] Log opened at 2025-12-04 17:06:40.486396
+[140581622611392] [Config] INFO: Control socket set up successfully: '@xdebug-ctrl.140581622611392'
+[140581622611392] [Step Debug] INFO: Connecting to configured address/port: host.docker.internal:9009.
+[140581622611392] [Step Debug] WARN: Creating socket for 'host.docker.internal:9009', poll success, but error: Operation now in progress (29).
+[140581622611392] [Step Debug] ERR: Could not connect to debugging client. Tried: host.docker.internal:9009 (through xdebug.client_host/xdebug.client_port).
