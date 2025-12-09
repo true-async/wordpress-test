@@ -34,6 +34,16 @@ class WPShared
                 $GLOBALS[$name] = $value;
             }
         }
+
+        $wpdbShared = WPShared::$globals['wpdb'];
+        unset($GLOBALS['wpdb']);
+        require_wp_db();
+        $wpdb = $GLOBALS['wpdb'];
+
+        // Copy all public properties from $wpdbShared to $wpdb
+        foreach ($wpdbShared as $name => $value) {
+            $wpdb->$name = $value;
+        }
     }
 }
 
