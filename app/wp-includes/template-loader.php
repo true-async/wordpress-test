@@ -52,12 +52,7 @@ if ( is_robots() ) {
 	return;
 }
 
-log_debug(__FILE__.": Template loader processing request...");
-
 if ( wp_using_themes() ) {
-
-    log_debug(__FILE__.": Using themes, determining template...");
-    
 	$tag_templates = array(
 		'is_embed'             => 'get_embed_template',
 		'is_404'               => 'get_404_template',
@@ -107,10 +102,8 @@ if ( wp_using_themes() ) {
 	 */
 	$template = apply_filters( 'template_include', $template );
 	if ( $template ) {
-        log_debug(__FILE__.": Including template: " . $template);
 		include $template;
 	} elseif ( current_user_can( 'switch_themes' ) ) {
-        log_debug(__FILE__.": No template found, checking theme errors...");
 		$theme = wp_get_theme();
 		if ( $theme->errors() ) {
 			wp_die( $theme->errors() );

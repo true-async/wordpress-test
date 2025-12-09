@@ -6,9 +6,6 @@ use NginxUnit\Response;
 
 set_time_limit(0);
 
-// WordPress root directory
-define( 'WP_ROOT' , __DIR__);
-
 // Logging function
 function log_debug($message) {
     file_put_contents(__DIR__.'/debug.log', date('[Y-m-d H:i:s] ') . $message . "\n", FILE_APPEND);
@@ -30,21 +27,13 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) {
     return false; // Let PHP handle it normally
 });
 
-$WordPressInstalled = false;
-
-if ( file_exists( 'wp-config.php' ) ) {
-    $WordPressInstalled = true;
-    log_debug("WordPress wp-config.php found");
-}
-
-log_debug("Registering onRequest handler...");
+// Load WordPress core
+include_once 'wp-loader.php';
 
 //
 // The function, the entry point, is called from NGINX UNIT.
 //
-HttpServer::onRequest(static function (Request $request, Response $response) use(&$WordPressInstalled) {
-    
-    log_debug("=== Request received ===");
+HttpServer::onRequest(static function (Request $request, Response $response) {
     
     $method = $request->getMethod();
     $uri = $request->getUri();
@@ -96,51 +85,26 @@ HttpServer::onRequest(static function (Request $request, Response $response) use
     $_SERVER['PHP_SELF']            = '/' . $path;
     $_SERVER['DOCUMENT_ROOT']       = WP_ROOT;
     
-    if(false === $WordPressInstalled) {
-        $response->setStatus(200);
-        $response->setHeader('Content-Type', 'text/html; charset=UTF-8');
-        $response->write('<h1>WordPress is not installed</h1><p>Please run the installation.</p>');
-        $response->end();
-        return;
-    }
-    
-    log_debug("Processing PHP file: $file");
-    
-    if(!defined('WP_USE_THEMES')) {
-        define( 'WP_USE_THEMES', true );
-    }
-    
     ob_start();
-    
+
     try {
-        include_once WP_ROOT . '/wp-load.php';
-        
-        if (function_exists('wp')) {
-            wp();
-        } else {
-            log_debug("ERROR: wp() function not found!");
-        }
-        
-        if (defined('ABSPATH') && defined('WPINC')) {
-            $template_loader = ABSPATH . WPINC . '/template-loader.php';
-            include $template_loader;
-        } else {
-            log_debug("ERROR: ABSPATH or WPINC not defined!");
-        }
-        
+
+        WPShared::cloneGlobals();
+        wp();
+
+        $template_loader = ABSPATH . WPINC . '/template-loader.php';
+        include $template_loader;
+
         // Get the output
         $output = ob_get_clean();
-        log_debug("Output captured, length: " . strlen($output));
-        
+
         if (!headers_sent()) {
             $response->setStatus(200);
             $response->setHeader('Content-Type', 'text/html; charset=UTF-8');
         }
         
         $response->write($output);
-        log_debug("Response written, calling end()...");
         $response->end();
-        log_debug("Response end() called");
     } catch (Throwable $e) {
         log_debug("ERROR processing PHP file: " . $e->getMessage());
         ob_end_clean();
